@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Responsive Dashboard UI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <header class="topbar">
+    <div class="brand">
+
+      <button id="hamburger" class="hamburger" aria-label="Open navigation" aria-controls="slideNav"
+        aria-expanded="false">
+        <span class="hamburger-icon">☰</span>
+      </button>
+
+      <button class="logo">JS</button>
+
+      <div class="brand-info">
+        <div class="title">Welcome dashboard</div>
+        <div class="subtitle">Product overview</div>
+      </div>
+    </div>
+
+    <div class="nav-actions">
+
+      <button class="nav-btn desktop-only" id="searchBtn" aria-label="Open search">🔍</button>
+      <button class="nav-btn desktop-only" id="notifBtn" aria-label="Open notifications">🔔</button>
+
+      <button class="nav-btn" id="profileBtn" aria-label="Open profile menu">👤</button>
+    </div>
+  </header>
+
+  <div id="searchPanel" class="popup-panel" aria-hidden="true">
+    <div class="popup-header">Search</div>
+    <input id="searchInput" class="popup-input" type="text" placeholder="Search anything..." />
+    <div class="popup-body">
+      Start typing to search your dashboard…
+    </div>
+  </div>
+
+  <div id="notifPanel" class="popup-panel" aria-hidden="true">
+    <div class="popup-header">Notifications</div>
+    <div class="popup-body">
+      <ul class="popup-list">
+        <li>🔔 New project invite from your team</li>
+        <li>📁 Your export is complete</li>
+        <li>🛡 Security: 2FA status updated</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="profilePanel" class="popup-panel" aria-hidden="true">
+    <div class="popup-header">Your Profile</div>
+    <div class="popup-body">
+      <div class="profile-info">
+        <div class="profile-avatar">👤</div>
+        <div>
+          <strong>John Doe</strong><br>
+          <span class="muted">john@example.com</span>
+        </div>
+      </div>
+      <button class="popup-btn">Account Settings</button>
+      <button class="popup-btn">Log Out</button>
+    </div>
+  </div>
+
+  <div id="overlay" class="overlay"></div>
+
+  <nav id="slideNav" class="slide-nav">
+    <div class="nav-header">
+      <div class="nav-header-left">
+        <div class="logo small">JS</div>
+        <div class="nav-header-text">
+          <div class="nav-header-title">Welcome dashboard</div>
+          <div class="nav-header-sub">Product overview</div>
+        </div>
+      </div>
+
+      <button id="closeNav" class="nav-btn" aria-label="Close menu">✕</button>
+    </div>
+
+    <div class="nav-list">
+      <button class="nav-list-btn">Overview</button>
+      <button class="nav-list-btn">Activity</button>
+      <button class="nav-list-btn">Settings</button>
+      <button class="nav-list-btn">Help</button>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <section class="left">
+
+      <div class="hero">
+        <div class="image">IMAGE</div>
+
+        <div class="hero-content">
+          <h1>Welcome to the product</h1>
+          <p>Short subtitle that describes the hero feature and a quick benefit.</p>
+
+          <div class="hero-actions">
+            <button class="cta" id="earlyAccessBtn">Get early access</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="features">
+
+        <article class="card" tabindex="0">
+          <div class="iconbox">📈</div>
+          <div class="meta">
+            <h4>Metric A</h4>
+            <p>Short explanation</p>
+
+            <div class="extra">
+              <div class="desc">Shows product usage trend over the last 7 days.</div>
+              <div class="meta-row">
+                <span class="chip">DAU: 3.2k</span>
+                <span class="chip">Sessions: 8.1k</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" tabindex="0">
+          <div class="iconbox">💬</div>
+          <div class="meta">
+            <h4>Messages</h4>
+            <p>Short explanation</p>
+
+            <div class="extra">
+              <div class="desc">Recent communication activity overview.</div>
+              <div class="meta-row">
+                <span class="chip">Unread: 14</span>
+                <span class="chip">Avg reply: 2h</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" tabindex="0">
+          <div class="iconbox">⚙️</div>
+          <div class="meta">
+            <h4>Settings</h4>
+            <p>Short explanation</p>
+
+            <div class="extra">
+              <div class="desc">Manage product configuration and preferences.</div>
+              <div class="meta-row">
+                <span class="chip">Prefs</span>
+                <span class="chip">Admin</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" tabindex="0">
+          <div class="iconbox">🔒</div>
+          <div class="meta">
+            <h4>Security</h4>
+            <p>Short explanation</p>
+
+            <div class="extra">
+              <div class="desc">Security alerts and recommended actions.</div>
+              <div class="meta-row">
+                <span class="chip">Alerts: 2</span>
+                <span class="chip">2FA: Enabled</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <aside class="panel">
+
+      <div class="panel-top">
+        <h2 id="panel-heading" class="panel-title">Overview</h2>
+
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="overview">Overview</button>
+          <button class="tab-btn" data-tab="activity">Activity</button>
+        </div>
+      </div>
+
+      <div id="tabContent">
+
+        <div class="overview" data-panel="overview">
+          <div class="progress-wrap">
+            <svg width="120" height="120" viewBox="0 0 120 120">
+              <defs>
+                <linearGradient id="g1" x1="0" x2="1">
+                  <stop offset="0%" stop-color="#60a5fa" />
+                  <stop offset="100%" stop-color="#2563eb" />
+                </linearGradient>
+              </defs>
+
+              <circle cx="60" cy="60" r="48" stroke="#eef2ff" stroke-width="12" fill="none" />
+              <circle id="progressCircle" cx="60" cy="60" r="48" stroke="url(#g1)" stroke-width="12"
+                stroke-linecap="round" fill="none" transform="rotate(-90 60 60)" stroke-dasharray="302"
+                stroke-dashoffset="302">
+              </circle>
+            </svg>
+
+            <div class="progress-legend"><span id="progressNumber">0%</span></div>
+          </div>
+
+          <div class="right-info">
+            <h3>72% complete</h3>
+            <p class="muted">Your overall setup progress.</p>
+          </div>
+        </div>
+
+        <div class="activity" data-panel="activity" hidden>
+          <div class="activity-header"><strong>Recent Activity</strong></div>
+          <ul class="muted">
+            <li>Exported report — 2 hours ago</li>
+            <li>Shared project with your team — Yesterday</li>
+            <li>Security settings updated — 3 days ago</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="quick-actions">
+        <div class="quick-title">Quick actions</div>
+        <div class="action-row">
+          <button class="btn" id="exportBtn">Export</button>
+          <button class="btn secondary" id="shareBtn">Share</button>
+        </div>
+      </div>
+
+    </aside>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
